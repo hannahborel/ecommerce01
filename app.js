@@ -2,7 +2,6 @@ const wrapper = document.querySelector(".sliderWrapper");
 const menuItems = document.querySelectorAll(".menuItem");
 const menuMarker = document.getElementById("navMarker");
 let menuCount = 0;
-
 menuMarker.style.left = menuItems[0].offsetLeft + "px";
 menuMarker.style.width = menuItems[0].offsetWidth + "px";
 
@@ -17,7 +16,7 @@ const products = [
         img: "./img/supeRepGreen.png",
       },
       {
-        code: "darkblue",
+        code: "white",
         img: "./img/supeRepWhite.png",
       },
     ],
@@ -93,6 +92,7 @@ const currentProductSizes = document.querySelectorAll(".size");
 const leftArrow = document.getElementById("left");
 const rightArrow = document.getElementById("right");
 
+const bannerBtn = document.querySelector(".bannerBtn");
 // Slide Menu With Arrows
 
 leftArrow.addEventListener("click", () => {
@@ -138,7 +138,7 @@ const slideMenu = (element, index) => {
   wrapper.style.transform = `translateX(${-100 * index}vw)`;
 };
 
-//update img on click
+//update img with color blocks on click
 
 currentProductColors.forEach((color, index) => {
   color.addEventListener("click", () => {
@@ -159,6 +159,22 @@ currentProductSizes.forEach((size, index) => {
     size.style.backgroundColor = "black";
     size.style.color = "white";
     console.log(size, "outer");
+  });
+});
+
+// update feature with banner button
+
+bannerBtn.addEventListener("click", () => {
+  chooseProduct = products[0];
+
+  // change text of current  product
+  currentProductImg.src = chooseProduct.colors[0].img;
+  currentProductTitle.innerText = chooseProduct.title;
+  currentProductPrice.innerText = "$" + chooseProduct.price;
+
+  // update color
+  currentProductColors.forEach((color, index) => {
+    color.style.backgroundColor = chooseProduct.colors[index].code;
   });
 });
 

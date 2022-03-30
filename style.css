@@ -1,5 +1,10 @@
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 body {
@@ -65,6 +70,7 @@ body {
   padding: 25px 0 0 0;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .sliderWrapper {
@@ -141,52 +147,6 @@ body {
   opacity: 0.1;
 }
 
-.sliderItem:nth-child(4) .sliderImg {
-  /* width: 45%; */
-}
-
-/* .sliderItem:nth-child(1) .sliderBg {
-  background-color: whitesmoke;
-  opacity: 0.1;
-}
-
-.sliderItem:nth-child(2) .sliderBg {
-  background-color: rgb(225, 110, 10);
-  opacity: 0.5;
-}
-
-.sliderItem:nth-child(3) .sliderBg {
-  background-color: teal;
-}
-
-.sliderItem:nth-child(4) .sliderBg {
-  background-color: cornflowerblue;
-}
-
-.sliderItem:nth-child(5) .sliderBg {
-  background-color: rgb(124, 115, 80);
-}
-
-.sliderItem:nth-child(1) .sliderPrice {
-  color: #369e62;
-}
-
-.sliderItem:nth-child(2) .sliderPrice {
-  color: white;
-}
-
-.sliderItem:nth-child(3) .sliderPrice {
-  color: teal;
-}
-
-.sliderItem:nth-child(4) .sliderPrice {
-  color: cornflowerblue;
-}
-
-.sliderItem:nth-child(5) .sliderPrice {
-  color: cornsilk;
-} */
-
 /* --------------Bottom Nav----------- */
 
 .navBottom {
@@ -262,6 +222,39 @@ body {
 .arrow:active {
   background-color: white;
   border-radius: 50%;
+}
+.banner {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.bannerContent {
+  position: absolute;
+  z-index: 1;
+  bottom: 10%;
+  right: 5%;
+}
+
+.bannerText {
+  font-weight: 900;
+  font-size: 60px;
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+}
+
+.bannerItem {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bannerBtn {
+  background-color: black;
+  color: whitesmoke;
 }
 
 .features {
@@ -353,20 +346,29 @@ body {
   border: 1px solid black;
   margin-right: 10px;
   cursor: pointer;
+  background: white;
+  color: black;
+  border-radius: 10px;
 }
 
 .productButton {
-  float: right;
-  padding: 10px 20px;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 33.76px;
+  font-size: 14;
+  font-weight: 600;
   background-color: black;
   color: white;
-  font-weight: 600;
   cursor: pointer;
 }
 
 .productButton:hover {
-  background-color: white;
+  background-color: #bbe453;
   color: black;
+}
+
+.productButton:active {
+  background-color: white;
 }
 
 .gallery {
@@ -376,11 +378,11 @@ body {
 
 .galleryItem {
   flex: 1;
-  padding: 50px;
 }
 
 .galleryImg {
   width: 100%;
+  height: 100%;
 }
 
 .newSeason {
