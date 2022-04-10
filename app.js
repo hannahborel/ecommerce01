@@ -42,12 +42,12 @@ const products = [
     price: 109,
     colors: [
       {
-        code: "white",
-        img: "./img/nikeFreeWhite.png",
-      },
-      {
         code: "black",
         img: "./img/nikeFreeBlack.png",
+      },
+      {
+        code: "white",
+        img: "./img/nikeFreeWhite.png",
       },
     ],
   },
@@ -93,18 +93,21 @@ const leftArrow = document.getElementById("left");
 const rightArrow = document.getElementById("right");
 
 const bannerBtn = document.querySelector(".bannerBtn");
-// Slide Menu With Arrows
+
+// Event Listener For Arrow Buttons
 
 leftArrow.addEventListener("click", () => {
   if (menuCount > 0) {
     menuCount--;
     slideMenu(menuItems[menuCount], menuCount);
+    console.log("clicked");
   }
 });
 rightArrow.addEventListener("click", () => {
   if (menuCount < 4) {
     ++menuCount;
     slideMenu(menuItems[menuCount], menuCount);
+    console.log("clicked");
   }
 });
 
@@ -114,21 +117,11 @@ menuItems.forEach((element, index) => {
   // trigger marker and wrapper slide
   element.addEventListener("click", (e) => {
     // reset count for arrows
+
     menuCount = index;
     slideMenu(element, index);
 
-    // change the choose product
-    chooseProduct = products[index];
-
-    // change text of current  product
-    currentProductImg.src = chooseProduct.colors[0].img;
-    currentProductTitle.innerText = chooseProduct.title;
-    currentProductPrice.innerText = "$" + chooseProduct.price;
-
-    // update color
-    currentProductColors.forEach((color, index) => {
-      color.style.backgroundColor = chooseProduct.colors[index].code;
-    });
+    changeFeature(index);
   });
 });
 
@@ -136,6 +129,24 @@ const slideMenu = (element, index) => {
   menuMarker.style.left = element.offsetLeft + "px";
   menuMarker.style.width = element.offsetWidth + "px";
   wrapper.style.transform = `translateX(${-100 * index}vw)`;
+  console.log("slideMeu");
+  changeFeature(index);
+};
+
+const changeFeature = (index) => {
+  console.log("changeFeature");
+  chooseProduct = products[index];
+
+  // change text of current  product
+  currentProductImg.src = chooseProduct.colors[0].img;
+  currentProductTitle.innerText = chooseProduct.title;
+  currentProductPrice.innerText = "$" + chooseProduct.price;
+
+  // update color
+  currentProductColors.forEach((color, index) => {
+    console.log("update color");
+    color.style.backgroundColor = chooseProduct.colors[index].code;
+  });
 };
 
 //update img with color blocks on click
